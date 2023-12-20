@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Register</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel='stylesheet' media='screen and (max-width: 500px)' href ="{% static 'css/mainmin.css' %}">
+	<script src="{% static 'main.js' %}"></script>
+</head>
+<body>
+    <section class="Top">
+        <a href="home">~~ Home</a>
+    </section>
+    <section class="Middle">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h3>Register Account: </h3>
+            {% csrf_token %}
+            {{form.first_name.label}}<br>
+            {{form.first_name}}<br>
+            {{form.last_name.label}}<br>
+            {{form.last_name}}<br>
+            {{form.username.label}}<br>
+            {{form.username}}<br>
+            {{form2.regid.label}}<br>
+            {{form2.regid}}<br>
+            {{form.email.label}}<br>
+            {{form.email}}<br>
+            {{form.password1.label}}<br>
+            {{form.password1}}<br>
+            {{form.password2.label}}<br>
+            {{form.password2}}<br>
+            <!--<input type="text" placeholder="First Name..." name="fname">
+            <input type="text" placeholder="Last Name..." name="lname">
+            <input type="text" placeholder="Username..." name="uname">
+            <input type="text" placeholder="Registration..." name="number">
+            <input type="password" placeholder="Password..." name="passwd1">
+            <input type="password" placeholder="Confirm password..." name="passwd2">
+            -->
+            <input type="submit" value="Register" name="register"><br>
+            {{form.errors}}
+            Already a member? <a href="/login">login</a>
+        </form>
+    </section>
+</body>
+</html>

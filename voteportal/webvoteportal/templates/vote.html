@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Vote</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel='stylesheet' media='screen and (max-width: 500px)' href ="{% static 'css/mainmin.css' %}">
+	<script src="{% static 'main.js' %}"></script>
+</head>
+<body>
+    <section class="Top">
+        <a href="home">~~ Home</a>
+    </section>
+    <section class="Middle">
+        <form method="post">
+            <h3>Select one Candidate Per Category: </h3>
+            {% csrf_token %}
+            <h3>Category:<i>PRESIDENT</i></h3>
+            {% for president in president_category %}
+            <img src="{{president.potrait.url}}" alt="" width="100">
+            {{president.fname}}
+            {{president.lname}}
+            {{president.regeid}}
+            <input type="checkbox" name="presidentcheck" value="{{president.regeid}}"><br>
+            {% endfor %}
+            <h3>Category:<i>SPORTS</i></h3>
+            {% for sports in sports_category %}
+            <img src="{{sports.potrait.url}}" alt="" width="100">
+            {{sports.fname}}
+            {{sports.lname}}
+            {{sports.regeid}}
+            <input type="checkbox" name="sportcheck" value="{{sports.regeid}}"><br>
+            {% endfor %}
+            <!--
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>
+            <div class="contestant">
+                <img src="#">
+                <p>Name Second</p><br>
+                <p>Ruuning Mate</p>
+                <input type="checkbox">
+            </div>-->
+            <input type="submit" value="Submit Vote"><br>
+            {{voterupdated.voted}}
+            <br>
+            {{validity}}
+            {% for voteupdate in voterupdate %}
+            {% endfor %}
+        </form>
+
+    </section>
+</body>
+</html>

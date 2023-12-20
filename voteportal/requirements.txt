@@ -1,0 +1,4 @@
+gunicorn
+whitenoise==6.2.0
+Django==3.2.12
+django-mathfilters==1.0.0

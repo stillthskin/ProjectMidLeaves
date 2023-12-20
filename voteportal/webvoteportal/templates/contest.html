@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Contest</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel='stylesheet' media='screen and (max-width: 500px)' href ="{% static 'css/mainmin.css' %}">
+	<script src="{% static 'main.js' %}"></script>
+</head>
+<body>
+    <section class="Top">
+        <a href="home">~~ Home</a>
+    </section>
+    <section class="Middle">
+        <b>First name:</b>{{contfname}}<br>
+        <b>Last name:</b>{{contlname}}<br>
+        <b>ID number:</b>{{contid}}<br>
+        <b>Email:</b>{{contemail}}<br>
+        <form method="post" enctype="multipart/form-data">
+            <h3>Please Provide Details For Consideration: </h3>
+            {% csrf_token %}
+            <p>Please fill the contestant form below correctly: AS  {{theuser}}</p>
+            <p>Category:</p>
+            <select type="option" name="thecategory">
+                <option value="President">President</option>
+                <option value="Sports">Sports</option>
+                <option value="undecided1">Undecided</option>
+                <option value="President2">undecided</option>
+            </select>
+            <p>Please upload all nessesary documents to be verified:</p>
+            <input type="file" name="documents">
+            <p>Please upload The Contestant potrait:</p>
+            <input type="file" name="potrait">
+            <br>
+            <input type="submit" value="Submit">
+            {{fname}}
+           </form>
+
+    </section>
+    
+</body>
+</html>
